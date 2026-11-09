@@ -7,9 +7,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="description" content="Fırfır İbo ve Ekibi — güvenlik görevlilerine karşı yapay zekalı, mobil uyumlu langırt oyunu.">
-<title>Fırfır İbo ve Ekibi — Langırt</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 3 L58 12 V30 C58 46 46 56 32 61 C18 56 6 46 6 30 V12 Z' fill='%23ffb703' stroke='%230b1735' stroke-width='4'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='900' font-size='24' text-anchor='middle' fill='%230b1735'%3EF%C4%B0%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Fırfır ve Ekibi — güvenlik görevlilerine karşı yapay zekalı, mobil uyumlu langırt oyunu.">
+<title>Fırfır ve Ekibi — Langırt</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 3 L58 12 V30 C58 46 46 56 32 61 C18 56 6 46 6 30 V12 Z' fill='%23ffb703' stroke='%230b1735' stroke-width='4'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='900' font-size='24' text-anchor='middle' fill='%230b1735'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
@@ -146,7 +146,7 @@ input.name:focus{border-color:var(--amber)}
 <section id="menu" class="screen active">
   <div class="wrap">
     <div class="hero" id="hero"></div>
-    <div class="title"><div class="t1">Fırfır İbo</div><div class="t2">VE EKİBİ</div></div>
+    <div class="title"><div class="t1">Fırfır</div><div class="t2">VE EKİBİ</div></div>
     <div class="tag"><span class="badge">◆ ÖZEL GÜVENLİK LANGIRT LİGİ ◆</span><br>Kartını okut, sahaya çık. Nöbetteki üç efsaneyi yenebilir misin?</div>
 
     <div class="sect">RAKİBİNİ SEÇ</div>
@@ -169,7 +169,7 @@ input.name:focus{border-color:var(--amber)}
       🖱️ <b>Bilgisayarda:</b> fare ile çubukları oynat, tıkla = şut. Klavye: ← → / A D ve Boşluk.<br>
       🎯 Topa figürün kenarıyla vurursan açılı şut çıkar. Rakiplerin özel hareketlerine ve çay molalarına dikkat!
     </div>
-    <div class="foot">Fırfır İbo ve Ekibi © 2026</div>
+    <div class="foot">Fırfır ve Ekibi © 2026</div>
   </div>
 </section>
 
@@ -258,12 +258,12 @@ const store={
   set(k,v){try{localStorage.setItem('fie_'+k,JSON.stringify(v));}catch(e){}}
 };
 const settings=Object.assign({sfx:true,music:true,tts:false,vib:true,goals:5,name:''},store.get('settings',{}));
-const wins=Object.assign({faruk:0,cakil:0,ibo:0},store.get('wins',{}));
+const wins=Object.assign({faruk:0,cakil:0,firfir:0},store.get('wins',{}));
 const saveSettings=()=>store.set('settings',settings);
 
 /* ================= CHARACTERS ================= */
 const SVG={
-ibo:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400">
+firfir:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400">
 <ellipse cx="100" cy="392" rx="46" ry="6" fill="rgba(0,0,0,.28)"/>
 <rect x="81" y="248" width="17" height="136" rx="6" fill="#1a2850"/>
 <rect x="102" y="248" width="17" height="136" rx="6" fill="#1a2850"/>
@@ -367,7 +367,7 @@ cakil:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400">
 <path d="M91 100 q10 5 18 -2" stroke="#6b2f1e" stroke-width="2.6" fill="none" stroke-linecap="round"/>
 </svg>`
 };
-const CROP={ibo:'60 24 80 80',faruk:'58 52 84 84',cakil:'60 20 80 80'};
+const CROP={firfir:'60 24 80 80',faruk:'58 52 84 84',cakil:'60 20 80 80'};
 const svgOf=(id,crop)=>crop?SVG[id].replace('viewBox="0 0 200 400"','viewBox="'+CROP[id]+'" preserveAspectRatio="xMidYMid slice"'):SVG[id];
 
 const CH={
@@ -407,14 +407,14 @@ cakil:{id:'cakil',name:'Ömer Çakıl',short:'Ö. ÇAKIL',lvl:'İLERİ',lvc:'lv-
     win:'Devriye tamamlandı. Bölge güvende, sen mağlupsun.',
     lose:'İyi oynadın. Burnumu sokmayayım, hak ettin.'
   }},
-ibo:{id:'ibo',name:'Fırfır İbo',short:'F. İBO',lvl:'ÇOK ZOR',lvc:'lv-zor',boss:true,
+firfir:{id:'firfir',name:'Fırfır',short:'FIRFIR',lvl:'ÇOK ZOR',lvc:'lv-zor',boss:true,
   bio:'Ekibin şefi. Uzun, zayıf, kır saçlı, jilet gibi tıraşlı, 45’lik efsane. Lacivert takımıyla Fırfır Atağı yapar.',
   ai:{react:.05,spd:780,err:3,pred:1,kick:.95,pow:870,cool:.3,aim:1,spec:[13,20],cay:.2},
   style:{shirt:'#22356a',acc:'#ffffff',pants:'#1a2850',skin:'#e8b98f',hair:'#cfcfcf',bw:18,suit:true},
   voice:{pitch:.7,rate:.98,blip:170},
   special:'firfir',specName:'🌀 FIRFIR ATAĞI!',goalText:'FIRFIRRR!',
   lines:{
-    intro:['Fırfır İbo nöbette! Kartın yoksa bu kaleye giremezsin.','Bu masada yılların tecrübesi var evlat. Saçlarım boşuna mı ağardı?','Takımı ütüledim, şimdi de seni ütüleyeceğim.','Neden Fırfır derler biliyor musun? Birazdan göreceksin.'],
+    intro:['Fırfır nöbette! Kartın yoksa bu kaleye giremezsin.','Bu masada yılların tecrübesi var evlat. Saçlarım boşuna mı ağardı?','Takımı ütüledim, şimdi de seni ütüleyeceğim.','Neden Fırfır derler biliyor musun? Birazdan göreceksin.'],
     score:['Fırfırrr! Gol tutanağa işlendi.','Kamera kayıtta, itiraz kabul edilmez!','Takım elbiseyle attım, ter bile dökmedim.','Bu gol vardiya devrine kadar konuşulur.'],
     concede:['Kamera o an kör noktadaydı!','Bu gol kayıt dışı, ziyaretçi kartı yoktu!','Telsiz cızırdadı, dikkatim dağıldı.','Tamam, bir tane hediyem olsun evlat.'],
     save:['Turnike kapalı! Geçiş yok!','Yasak bölge kardeşim.','Kravatımı bile geçemezsin.'],
@@ -426,7 +426,7 @@ ibo:{id:'ibo',name:'Fırfır İbo',short:'F. İBO',lvl:'ÇOK ZOR',lvc:'lv-zor',b
     lose:'Bu maçın kaydını sildireceğim... Tebrikler evlat, sen ekiptensin artık.'
   }}
 };
-const ORDER=['faruk','cakil','ibo'];
+const ORDER=['faruk','cakil','firfir'];
 const PLAYER_STYLE={shirt:'#e63946',acc:'#fff',pants:'#f1f1f1',skin:'#f1c27d',hair:'#5a3a1e',bw:20,stripe:true};
 const lastPick={};
 function pick(arr,key){ if(!Array.isArray(arr)) return arr; let i=Math.floor(Math.random()*arr.length); if(arr.length>1&&lastPick[key]===i) i=(i+1)%arr.length; lastPick[key]=i; return arr[i]; }
@@ -592,7 +592,7 @@ function buildTable(){
   t.beginPath(); t.arc(CX,FY1-70,26,Math.PI,0); t.stroke();
   // center logo
   t.save(); t.globalAlpha=.2; t.fillStyle='#fff'; t.textAlign='center'; t.textBaseline='middle';
-  t.font='800 15px "Baloo 2",Arial'; t.fillText('FIRFIR İBO',CX,CY-10); t.font='700 9px "Baloo 2",Arial'; t.fillText('VE EKİBİ ARENA',CX,CY+10); t.restore();
+  t.font='800 15px "Baloo 2",Arial'; t.fillText('FIRFIR',CX,CY-10); t.font='700 9px "Baloo 2",Arial'; t.fillText('VE EKİBİ ARENA',CX,CY+10); t.restore();
   // frame inner shadow
   t.strokeStyle='rgba(0,0,0,.45)'; t.lineWidth=4; t.strokeRect(FX0-1,FY0-1,FX1-FX0+2,FL+2);
   // screws + frame text
@@ -954,7 +954,7 @@ requestAnimationFrame(frame);
 /* ================= SCREENS ================= */
 function show(id){ $$('.screen').forEach(s=>s.classList.toggle('active',s.id===id)); }
 function buildMenu(){
-  $('#hero').innerHTML=['faruk','ibo','cakil'].map(id=>'<div class="h">'+svgOf(id)+'</div>').join('');
+  $('#hero').innerHTML=['faruk','firfir','cakil'].map(id=>'<div class="h">'+svgOf(id)+'</div>').join('');
   const list=$('#opps'); list.innerHTML='';
   ORDER.forEach(id=>{ const ch=CH[id]; const el=document.createElement('button'); el.className='card'+(ch.boss?' boss':'');
     el.innerHTML='<div class="fig">'+svgOf(id)+'</div><div class="info"><div class="row"><span class="nm">'+ch.name+'</span><span class="chip '+ch.lvc+'">'+ch.lvl+'</span></div><p>'+ch.bio+'</p><div class="meta">'+(wins[id]?'🏆 '+wins[id]+' galibiyet':'Henüz yenilmedi')+'</div></div><div class="go">›</div>';

@@ -1,11 +1,11 @@
-# Fırfır İbo ve Ekibi — Langırt ⚽
+# Fırfır ve Ekibi — Langırt ⚽
 
 Yapay zekaya karşı oynanan, mobil uyumlu tarayıcı langırt oyunu. Tek dosya (`index.html`), kurulum gerektirmez.
 
 **Rakipler**
 - **Ömer Faruk** — Orta · Özel hareket: *Göbek Duvarı*
 - **Ömer Çakıl** — İleri · Özel hareket: *Burun Radarı*
-- **Fırfır İbo** — Çok Zor (Patron) · Özel hareket: *Fırfır Atağı*
+- **Fırfır** — Çok Zor (Patron) · Özel hareket: *Fırfır Atağı*
 
 **Kontroller**
 - Mobil: parmağını sağa-sola kaydır → çubuklar; dokun / yukarı fiske / ikinci parmak → şut
